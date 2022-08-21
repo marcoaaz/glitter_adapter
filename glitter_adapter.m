@@ -15,15 +15,14 @@ scriptDir1 = 'E:\Alienware_March 22\scripts_Marco\updated MatLab scripts';
 addpath(scriptDir1)
 
 sourceDir = fullfile(workingDir, 'process');
-destName = 'output_option2';
+destName = 'output_option1';
 destDir = fullfile(sourceDir, destName);
 mkdir(destDir)
-
-%% Import
 
 fileNames = GetFileNames(sourceDir, '.csv');
 fileNames' %select accordingly
 
+%% Import
 %Spectra
 fileName1 = fullfile(sourceDir, fileNames{1});
 opts1 = detectImportOptions(fileName1, 'VariableNamingRule', 'preserve', 'Delimiter', ',');
@@ -183,8 +182,11 @@ for k = 1:n_on_stamps
                    line3_txt
                    };
     
-    subFolderDest = fullfile(sourceDir, destName, folderName_temp);
-    mkdir(subFolderDest)
+    %alternative 1: naked csv
+    subFolderDest = fullfile(sourceDir, destName);
+    %alternative 2: sub-folder structure
+%     subFolderDest = fullfile(sourceDir, destName, folderName_temp);
+%     mkdir(subFolderDest)
     fileDest = fullfile(subFolderDest, fileName_temp);
 
     %Saving

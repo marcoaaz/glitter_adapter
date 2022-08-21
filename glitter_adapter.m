@@ -15,7 +15,7 @@ scriptDir1 = 'E:\Alienware_March 22\scripts_Marco\updated MatLab scripts';
 addpath(scriptDir1)
 
 sourceDir = fullfile(workingDir, 'process');
-destName = 'output_option1';
+destName = 'output_option4';
 destDir = fullfile(sourceDir, destName);
 mkdir(destDir)
 
@@ -136,7 +136,7 @@ for ii = 1:n_on_stamps
 end
 
 %% Saving
-delete(destDir) %avoid overwritting
+[status, message, messageid] = rmdir(destDir, 's'); %avoid overwritting
 mkdir(destDir)
 
 for k = 1:n_on_stamps
